@@ -11,6 +11,6 @@ terraform {
     bucket = "demo-usecases-bucket-new"
     key    = "usecase-12/terraform.tftstate"
     region = "us-east-1"
-    user_lockfile=true
+    use_lockfile=true
   }
 }
