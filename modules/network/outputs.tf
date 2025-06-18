@@ -18,9 +18,6 @@ output "private_subnets_id" {
   value = aws_subnet.private-subnets.*.id
 }
 
-# output public_subnets_id_1 {
-#   value       = "${aws_subnet.public-subnets.0.id}"
-# }
 
 output "private_route_table_ids" {
   value = aws_route_table.private-routing-table.*.id
