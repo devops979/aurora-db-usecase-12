@@ -65,27 +65,10 @@ variable "tags" {
 
 
 
-variable "subnet_ids" {
-  description = "List of private subnet IDs for Aurora"
-  type        = list(string)
-}
-
-
-variable "engine" {
-  description = "Aurora database engine (e.g., aurora-mysql)"
-  type        = string
-}
-
-variable "engine_version" {
-  description = "Version of the Aurora database engine"
-  type        = string
-}
-
-variable "instance_class" {
-  description = "Instance class for Aurora DB instances"
-  type        = string
-}
-
+# variable "subnet_ids" {
+#   description = "List of private subnet IDs for Aurora"
+#   type        = list(string)
+# }
 
 
 variable "database_name" {
@@ -105,13 +88,6 @@ variable "db_instance_type" {
   
 }
 
-
-
-
-variable "cluster_name" {
-  description = "Name of the Aurora DB cluster"
-  type        = string
-}
 
 variable "secrets_manager_secret_name" {
   description = "Name of the Secrets Manager secret to store credentials"
