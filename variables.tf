@@ -74,11 +74,13 @@ variable "tags" {
 variable "database_name" {
   description = "Initial database name"
   type        = string
+  default     =  "demo-aurora-database"
 }
 
 variable "db_master_username" {
   description = "Master username for the Aurora cluster"
   type        = string
+  default     = "admin"
 }
 
 variable "db_instance_type" {
@@ -92,6 +94,7 @@ variable "db_instance_type" {
 variable "secrets_manager_secret_name" {
   description = "Name of the Secrets Manager secret to store credentials"
   type        = string
+  default     = "myaurora"
 }
 
 
