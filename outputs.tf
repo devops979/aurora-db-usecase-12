@@ -21,5 +21,5 @@ output "secrets_manager_secret_arn" {
 
 
 output "security_group_id" {
-  value = module.aurora_db.security_group_id
+  value = module.security_groups.db_sg_id
 }
