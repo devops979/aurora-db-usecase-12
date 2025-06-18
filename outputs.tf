@@ -15,11 +15,11 @@ output "aurora_endpoint" {
 }
 
 output "secrets_manager_secret_arn" {
-  value = module.aurora_db_setup.secrets_manager_arn
+  value = module.aurora_db.secrets_manager_arn
 }
 
 
 
 output "security_group_id" {
-  value = module.aurora_db_setup.security_group_id
+  value = module.aurora_db.security_group_id
 }
