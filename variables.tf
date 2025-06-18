@@ -101,7 +101,7 @@ variable "secrets_manager_secret_name" {
 variable "db_engine" {
   description = "Database engine for Aurora"
   type        = string
-  default     = "auroramysql"
+  default     = "aurora-mysql"
   
 }
 
