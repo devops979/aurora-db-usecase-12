@@ -44,7 +44,3 @@ variable "security_group_id" {
   type        = string
 }
 
-variable "secrets_manager_secret_name" {
-  description = "Name of the Secrets Manager secret"
-  type        = string
-}
