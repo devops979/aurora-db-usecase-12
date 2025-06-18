@@ -40,6 +40,6 @@ module "aurora_db" {
    db_instance_type               = var.db_instance_type
   database_name               = var.database_name
   db_master_username               = var.db_master_username
-  security_group_id = [module.security_groups.db_sg_id]
+  security_group_id = module.security_groups.db_sg_id
   secrets_manager_secret_name = var.secrets_manager_secret_name
 }
