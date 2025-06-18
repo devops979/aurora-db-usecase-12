@@ -6,12 +6,12 @@ provider "aws" {
 module "network" {
   source             = "./modules/network"
   vpc_cidr           = var.cidr_block
-  vpc_name           = "demo-webapp-vpc"
+  vpc_name           = "demo-auroradb-vpc"
   environment        = var.environment
   public_cidr_block  = var.public_subnet_cidrs
   private_cidr_block = var.private_subnet_cidrs
   azs                = var.availability_zones
-  owner              = "demo-webapp-alb"
+  owner              = "demo-aurora-db"
 }
 
 module "nat" {
@@ -41,5 +41,4 @@ module "aurora_db" {
   database_name               = var.database_name
   db_master_username               = var.db_master_username
   security_group_id = module.security_groups.db_sg_id
-  secrets_manager_secret_name = var.secrets_manager_secret_name
 }
