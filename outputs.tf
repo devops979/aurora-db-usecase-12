@@ -11,7 +11,7 @@ output "private_subnet_ids" {
 }
 
 output "aurora_endpoint" {
-  value = module.aurora_db_setup.aurora_cluster_endpoint
+  value = module.aurora_db.aurora_cluster_endpoint
 }
 
 output "secrets_manager_secret_arn" {
