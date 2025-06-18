@@ -34,23 +34,7 @@ variable "environment" {
   default     = "Dev"
 }
 
-variable "key_name" {
-  description = "The key name of the instance"
-  type        = string
-  default     = "devops-tools"
-}
 
-variable "ami_id" {
-  description = "AMI ID for the EC2 instances"
-  type        = string
-  default     = "ami-084568db4383264d4"
-}
-
-variable "instance_type" {
-  description = "Instance type for the EC2 instances"
-  type        = string
-  default     = "t2.micro"
-}
 
 # variable "db_name" {
 #   description = "The name of the database"
@@ -79,20 +63,13 @@ variable "tags" {
 }
 
 
-variable "db_subnet_group_name" {
-  description = "Name of the DB subnet group"
-  type        = string
-}
+
 
 variable "subnet_ids" {
   description = "List of private subnet IDs for Aurora"
   type        = list(string)
 }
 
-variable "allocated_storage" {
-  description = "Allocated storage for Aurora DB (in GB)"
-  type        = number
-}
 
 variable "engine" {
   description = "Aurora database engine (e.g., aurora-mysql)"
@@ -128,10 +105,7 @@ variable "db_instance_type" {
   
 }
 
-variable "vpc_security_group_ids" {
-  description = "List of VPC security group IDs"
-  type        = list(string)
-}
+
 
 
 variable "cluster_name" {
