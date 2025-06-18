@@ -74,7 +74,7 @@ variable "tags" {
 variable "database_name" {
   description = "Initial database name"
   type        = string
-  default     =  "demo-aurora-database"
+  default     =  "demoAuroraDB"
 }
 
 variable "db_master_username" {
@@ -101,7 +101,7 @@ variable "secrets_manager_secret_name" {
 variable "db_engine" {
   description = "Database engine for Aurora"
   type        = string
-  default     = "aurora-mysql"
+  default     = "auroramysql"
   
 }
 
@@ -116,6 +116,6 @@ variable "db_engine_version" {
 variable "aurora_cluster_name" {
   description = "Name of the DB subnet group"
   type        = string
-  default     = "aurora-db-cluster"
+  default     = "auroradbcluster"
   
 }
