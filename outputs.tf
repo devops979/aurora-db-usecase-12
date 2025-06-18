@@ -15,7 +15,7 @@ output "aurora_endpoint" {
 }
 
 output "secrets_manager_secret_arn" {
-  value = module.aurora_db.secrets_manager_arn
+  value = module.aurora_db.aurora_secret_arn
 }
 
 
