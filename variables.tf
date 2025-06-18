@@ -91,12 +91,6 @@ variable "db_instance_type" {
 }
 
 
-variable "secrets_manager_secret_name" {
-  description = "Name of the Secrets Manager secret to store credentials"
-  type        = string
-  default     = "myaurora"
-}
-
 
 variable "db_engine" {
   description = "Database engine for Aurora"
