@@ -10,18 +10,16 @@ output "private_subnet_ids" {
   value = module.network.private_subnets_id
 }
 
-output "web_instance_ids" {
-  value = module.ec2.instance_id
+output "aurora_endpoint" {
+  value = module.aurora_db_setup.aurora_cluster_endpoint
 }
 
-output "web_instance_ips" {
-  value = module.ec2.public_ip
+output "secrets_manager_secret_arn" {
+  value = module.aurora_db_setup.secrets_manager_arn
 }
 
-output "db_endpoint" {
-  value = module.rds.db_endpoint
-}
 
-output "alb_dns_name" {
-  value = module.alb.alb_dns_name
+
+output "security_group_id" {
+  value = module.aurora_db_setup.security_group_id
 }

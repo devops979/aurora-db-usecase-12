@@ -29,57 +29,17 @@ module "security_groups" {
   tags   = var.tags
 }
 
-module "ec2" {
-  source         = "./modules/ec2"
-  key_name       = var.key_name
-  ami_name       = var.ami_id
-  sg_id          = module.security_groups.web_sg_id
-  vpc_name       = module.network.vpc_name
-  public_subnets = module.network.public_subnets_id
-  instance_type  = var.instance_type
-  project_name   = "demo-instance"
-  user_data      = <<-EOF
-                      #!/bin/bash
-                      sudo apt update -y
-                      sudo apt install nginx -y
-                      sudo systemctl start nginx
-                      sudo systemctl enable nginx
-                      EOF
-}
 
-module "rds" {
-  source               = "./modules/rds"
-  db_subnet_group_name = "main-db-subnet-group"
-  subnet_ids           = module.network.private_subnets_id
-  allocated_storage    = 20
-  engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t3.micro"
-  db_name              = var.db_name
-  username             = var.db_username
-  password             = var.db_password
-  #parameter_group_name  = "default.mysql8.0"
-  vpc_security_group_ids = [module.security_groups.db_sg_id]
-  tags                   = var.tags
-}
 
-module "alb" {
-  source                = "./modules/alb"
-  name                  = "web-lb"
-  security_group_id     = module.security_groups.web_sg_id
-  subnet_ids            = module.network.public_subnets_id
-  target_group_name     = "web-target-group"
-  target_group_port     = 80
-  target_group_protocol = "HTTP"
-  vpc_id                = module.network.vpc_id
-  health_check_path     = "/"
-  health_check_protocol = "HTTP"
-  health_check_interval = 30
-  health_check_timeout  = 5
-  healthy_threshold     = 2
-  unhealthy_threshold   = 2
-  listener_port         = 80
-  listener_protocol     = "HTTP"
-  target_ids            = module.ec2.instance_id
-  tags                  = var.tags
+module "aurora_db" {
+  source                 = "./modules/aurora"
+  aurora_cluster_name         = var.aurora_cluster_name
+  subnet_ids             = module.network.private_subnets_id
+  db_engine                 = var.db_engine
+  db_engine_version         = var.db_engine_version
+   db_instance_type               = var.db_instance_type
+  database_name               = var.database_name
+  db_master_username               = var.db_master_username
+  security_group_id = [module.security_groups.db_sg_id]
+  secrets_manager_secret_name = var.secrets_manager_secret_name
 }

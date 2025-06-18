@@ -52,23 +52,23 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-variable "db_name" {
-  description = "The name of the database"
-  type        = string
-  default     = "mydatabase"
-}
+# variable "db_name" {
+#   description = "The name of the database"
+#   type        = string
+#   default     = "mydatabase"
+# }
 
-variable "db_username" {
-  description = "The username for the database"
-  type        = string
-  default     = "admin"
-}
+# variable "db_username" {
+#   description = "The username for the database"
+#   type        = string
+#   default     = "admin"
+# }
 
-variable "db_password" {
-  description = "The password for the database"
-  type        = string
-  default     = "mypassword"
-}
+# variable "db_password" {
+#   description = "The password for the database"
+#   type        = string
+#   default     = "mypassword"
+# }
 
 variable "tags" {
   description = "Tags to apply to resources"
@@ -76,4 +76,93 @@ variable "tags" {
   default = {
     Name = "TerraformProject"
   }
+}
+
+
+variable "db_subnet_group_name" {
+  description = "Name of the DB subnet group"
+  type        = string
+}
+
+variable "subnet_ids" {
+  description = "List of private subnet IDs for Aurora"
+  type        = list(string)
+}
+
+variable "allocated_storage" {
+  description = "Allocated storage for Aurora DB (in GB)"
+  type        = number
+}
+
+variable "engine" {
+  description = "Aurora database engine (e.g., aurora-mysql)"
+  type        = string
+}
+
+variable "engine_version" {
+  description = "Version of the Aurora database engine"
+  type        = string
+}
+
+variable "instance_class" {
+  description = "Instance class for Aurora DB instances"
+  type        = string
+}
+
+
+
+variable "database_name" {
+  description = "Initial database name"
+  type        = string
+}
+
+variable "db_master_username" {
+  description = "Master username for the Aurora cluster"
+  type        = string
+}
+
+variable "db_instance_type" {
+  description = "Instance type for Aurora DB instances"
+  type        = string
+  default     = "db.t3.medium"
+  
+}
+
+variable "vpc_security_group_ids" {
+  description = "List of VPC security group IDs"
+  type        = list(string)
+}
+
+
+variable "cluster_name" {
+  description = "Name of the Aurora DB cluster"
+  type        = string
+}
+
+variable "secrets_manager_secret_name" {
+  description = "Name of the Secrets Manager secret to store credentials"
+  type        = string
+}
+
+
+variable "db_engine" {
+  description = "Database engine for Aurora"
+  type        = string
+  default     = "aurora-mysql"
+  
+}
+
+
+variable "db_engine_version" {
+  type        = string
+  description = "The database engine version"
+  default     = "8.0.mysql_aurora.3.05.2"
+}
+
+
+variable "aurora_cluster_name" {
+  description = "Name of the DB subnet group"
+  type        = string
+  default     = "aurora-db-cluster"
+  
 }
