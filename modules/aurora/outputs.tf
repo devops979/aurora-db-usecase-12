@@ -15,6 +15,6 @@ output "aurora_reader_endpoint" {
 
 # Output to get the ARN of the secret where AWS stores the master password
 output "aurora_master_secret_arn" {
-  value = aws_rds_cluster.aurora.master_user_secret[0].secret_arn
+  value = try(aws_rds_cluster.aurora.master_user_secret[0].secret_arn, null)
   description = "ARN of the secret storing the Aurora master password"
 }

@@ -16,6 +16,8 @@ resource "aws_rds_cluster" "aurora" {
   vpc_security_group_ids          = [var.security_group_id]
   db_subnet_group_name            = aws_db_subnet_group.aurora.name
   skip_final_snapshot             = true
+  depends_on = [aws_db_subnet_group.aurora]
+
 }
 
 resource "aws_rds_cluster_instance" "writer" {
